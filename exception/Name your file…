@@ -1,0 +1,25 @@
+# Калькулятор Польская нотация
+def calculate():
+  try:
+    request = (input('Введите тип вычисления и 2 числа для вычисления(между знаком вычисления и числами ставьте пробелы: '))
+    request_l = request.split(' ')
+    print(request_l)
+    x = int(request_l[1])
+    y = int(request_l[2])
+
+    if request_l[0] == '+':
+      return print('ответ равен: ', x + y)
+    elif request_l[0] == '-':
+      return print('ответ равен: ', x - y)
+    elif request_l[0] == '*':
+      return print('ответ равен: ', x * y)
+    elif request_l[0] == '/':
+        return print('ответ равен: ', round(x / y, 2))
+    assert request_l[0] in ['+', '-', '*', '/' ], f'Операция {request_l[0]} не поддерживается.'
+  except ZeroDivisionError:
+    print ('Деление на ноль запрещено')
+  except AssertionError:
+    print(f'операция {request_l[0]} не поддерживается')
+  except ValueError:
+    print('Ошибка с выбором типа данных для одного или обоих аргументов.')
+calculate()
